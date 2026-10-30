@@ -6,7 +6,7 @@
     <title>Coba CSS - Selector & Property</title>
     <style>
         h1 {
-            font-size: 50px;
+            font-size: 100px;
             font-family: Arial;
             color:fuchsia;
             text-align: center;
@@ -17,12 +17,29 @@
             font-size: 30px;
             text-align: center;
         }
+
+        .p2{
+            color:blue;
+        }
+
+        #judul{
+         text-transform: uppercase;
+        }
+
+        #garis{
+            text-decoration: underline;
+        }
+
+        .cetak-miring{
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
-       <h1>Hello Word</h1>
-       
-       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus incidunt similique consequuntur illo veritatis nulla, nostrum, natus, perspiciatis tenetur eius eum libero esse consequatur fugit ratione? Earum excepturi magni officia nam perspiciatis vel repellat, ipsum deserunt nostrum aut nulla?</p>
-       <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, voluptate quas sit quisquam nisi officiis perferendis vero sapiente magni!</P>
+       <h1 id="judul" class="p2 cetak-miring"> Hello Word</h1>
+        
+        <p id="garis" class="cetak-miring">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus incidunt similique consequuntur illo veritatis nulla, nostrum, natus, perspiciatis tenetur eius eum libero esse consequatur fugit ratione? Earum excepturi magni officia nam perspiciatis vel repellat, ipsum deserunt nostrum aut nulla?</p>
+
+       <p class="p2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, voluptate quas sit quisquam nisi officiis perferendis vero sapiente magni!</p>
 </body>
 </html>
