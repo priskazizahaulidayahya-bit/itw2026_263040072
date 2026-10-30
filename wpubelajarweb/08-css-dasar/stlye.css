@@ -1,0 +1,12 @@
+h1 {
+            font-size: 100px;
+            font-family: Arial;
+            color:fuchsia;
+            text-align: center;
+        }
+
+        p{
+            color:cyan;
+            font-size: 30px;
+            text-align: center;
+        }
