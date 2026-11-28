@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Z-Gamer | FPS Streamer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Inter, arial, sans-serif;
+      background: linear-gradient(125deg, #e7ecf1, #b0becc);
+      color: #f1f5f9;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .top-banner {
+      background: linear-gradient(to right, #af912d, #f3d05f);
+      color: #000000;
+      text-align: center;
+      padding: 12px;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgb(0 0 0 / 0.3);
+      text-shadow: 1px 1px 2px rgb(0 0 0 / 0.4);
+    }
+
+    .navbar {
+      background-color: #DAA520;
+      padding: 15px 50px;
+      border-bottom: 2px solid #B8860B;
+      overflow: auto;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+    }
+
+    .navbar .nav-logo {
+      float: left;
+      color: #0f172a;
+      font-size: 24px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      font-weight: bold;
+    }
+
+    .navbar .nav-menu {
+      float: right;
+      list-style: none;
+      margin-top: 5px;
+    }
+
+    .navbar .nav-menu li {
+      display: inline-block;
+      margin-left: 25px;
+    }
+
+    .navbar .nav-menu li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .navbar .nav-menu li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      left: 0;
+      bottom: -4px;
+      background-color: #f6a53b;
+      transition: width 0.3s;
+    }
+
+    .navbar .nav-menu li a:hover::after {
+      width: 100%;
+    }
+
+    main {
+      width: 90%;
+      max-width: 1000px;
+      margin: 40px auto;
+    }
+
+    main .bio {
+      background-color: #e0c112;
+      color: #0f172a;
+      padding: 35px;
+      border-radius: 16px;
+      margin-bottom: 50px;
+      border: 1px solid #334155;
+      box-shadow: 0 10px 30px rgb(0 0 0 / 0.5);
+    }
+
+    main .bio img {
+      float: left;
+      width: 160px;
+      height: 160px;
+      border-radius: 12px;
+      margin-right: 20px;
+      margin-bottom: 5px;
+    }
+
+    main .bio h2 {
+      margin-bottom: 15px;
+      font-size: 32px;
+      background: linear-gradient(to right, #dbbe19,#B8860B);
+      background-clip: text;
+      color: transparent;
+    }
+
+    main .bio p {
+      margin-bottom: 15px;
+    }
+
+    main .card-container {
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    main .card-container .profile-wrapper {
+      display: inline-block;
+      border: 6px solid white;
+      border-radius: 24px;
+      box-shadow: 0 25px 50px rgb(0 0 0 / 0.5);
+      overflow: hidden;
+      position: relative;
+    }
+
+    main .card-container .profile-wrapper img {
+      width: 100%;
+      display: block;
+      max-width: 600px;
+    }
+
+    main .card-container .profile-wrapper .badge {
+      background-color: #ef4444;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 14px;
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 10px rgb(0 0 0 / 0.3);
+    }
+
+    main .schedule {
+      background-color: #B8860B;
+      padding: 30px;
+      border: 1px dashed #f1f1f1;
+      margin-bottom: 60px;
+      border-radius: 12px;
+    }
+
+    :is(.schedule, .gallery) h3 {
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 24px;
+    }
+
+    main .schedule ul {
+      list-style: none;
+      text-align: center;
+    }
+
+    main .schedule ul li {
+      margin-bottom: 10px;
+      padding: 10px;
+      transition: 0.3s;
+    }
+
+    main .schedule ul li:nth-child(even) {
+      background-color: rgba(236, 245, 118, 0.1);
+      border-radius: 6px;
+    }
+
+    main .schedule ul li:hover {
+      transform: scale(1.02);
+      color: #f7ff0a;
+    }
+
+    main .schedule ul li b {
+      color: #F7E7CE;
+    }
+
+    main .gallery {
+      text-align: center;
+    }
+
+    main .gallery h3 {
+      text-align: left;
+      margin-bottom: 30px;
+      border-left: 6px solid #113268;
+      padding-left: 15px;
+    }
+
+    main .gallery .video-item {
+      display: inline-block;
+      width: 23%;
+      margin: 1%;
+      background-color: #131211;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #334155;
+      text-align: left;
+      transition: 0.3s;
+    }
+
+    main .gallery .video-item:hover {
+      box-shadow: 0 10px 20px rgba(247, 244, 69, 0.3);
+      transform: translateY(-5px);
+      cursor: pointer;
+    }
+
+    main .gallery:has(.video-item:hover) .video-item:not(:hover) {
+      opacity: 0.5;
+      filter: grayscale(80%);
+    }
+
+    main .gallery .video-item img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    main .gallery .video-item .video-info {
+      padding: 15px;
+    }
+
+    main .gallery .video-item .video-info h4 {
+      font-size: 13px;
+      margin-bottom: 8px;
+      color: #f1f5f9;
+    }
+
+    main .gallery .video-item .video-info p {
+      font-size: 11px;
+      color: #94a3b8;
+    }
+
+    .chat-btn {
+      position: fixed;
+      bottom: 35px;
+      right: 35px;
+      width: 70px;
+      height: 70px;
+      background-color: #B8860B;
+      color: white;
+      border-radius: 50%;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 32px;
+      text-align: center;
+      line-height: 70px;
+      box-shadow: 0 15px 30px rgb(0 0 0 / 0.4);
+      transition: 0.3s;
+    }
+
+    .chat-btn:hover {
+      background-color: #eeab1c;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Promo Banner -->
+  <div class="top-banner">
+    🚀 NEW MERCH DROP! USE CODE "ZPRO" FOR 20% OFF ALL HOODIES.
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="#" class="nav-logo">Z-GAMER</a>
+    <ul class="nav-menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Videos</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- About Section -->
+    <section class="bio">
+      <img src="img/channels4_profile deankt.jpg" alt="Z-Gamer Profile" class="bio-img">
+      <h2>The Legend of Membership</h2>
+      <p>Halo, saya DEANKT! seorang Aldean Tegar Gemilang dimulai dari hiruk-pikuk warnet di era akhir tahun 2000-an sebagai pemain Dota dan Warcraft dengan nickname "Luch". Keringat dan jam terbangnya di skena kompetitif berbuah manis saat ia sukses membawa pulang trofi World Cyber Games (WCG) Indonesia 2010 bersama tim Digi Ultimate. Usai menamatkan pendidikan sarjananya, kecintaannya pada dunia gim tak luntur; ia justru memilih masuk ke balik layar industri esports dengan bergabung ke EVOS Esports pada tahun 2016. Dimulai dari posisi manajer divisi Dota 2, tangan dingin dan insting tajamnya meracik strategi membuat kariernya melesat hingga menjadi Vice President, sosok kunci yang merancang era kejayaan dan gelar juara dunia bagi berbagai divisi EVOS.</p>
+      <p>Namun, di puncak kesuksesannya sebagai petinggi organisasi esports pada akhir 2022, pria yang akrab disapa Mas Dean ini mengambil keputusan berani untuk pamit dan banting setir menjadi streamer penuh waktu lewat nama panggung DEANKT. </p>
+    </section>
+
+    <!-- Profile Status -->
+    <section class="card-container">
+      <figure class="profile-wrapper">
+        <span class="badge">● LIVE NOW</span>
+        <img src="img/live gta.png.png" alt="Main Profile Display">
+      </figure>
+    </section>
+
+    <!-- Weekly Schedule -->
+    <section class="schedule">
+      <h3>🎮 Current Streaming Schedule</h3>
+      <ul>
+        <li>Senin: <b>18.00 - 00.00</b> (GTA VI)</li>
+        <li>Rabu: <b>19.00 - 22.00</b> (IRL WITH B2F)</li>
+        <li>Jumat: <b>20.00 - Late</b> (GTA VI)</li>
+        <li>Sabtu: <b>21.00 - 01.00</b> (LIVE MEDIA SHARE)</li>
+      </ul>
+    </section>
+
+    <!-- Highlights Gallery -->
+    <section class="gallery">
+      <h3>Latest Highlights</h3>
+
+      <figure class="video-item">
+        <img src="img/Cuplikan layar 2026-11-28 152257.png" alt="Clip 1">
+        <a href ="https://youtu.be/QyuyjlTNbnc?si=v8KaSHID04Evt_yM">
+        <figcaption class="video-info">
+          <h4>REACTION AKMJ SPJ! APA LAGI YANG KALIAN TUNGGU? GASSSSSS!!!</h4>
+          <p>2.5M Views • 4 Years ago</p>
+        </figcaption>
+      </figure>
+
+      <figure class="video-item">
+        <img src="img/Cuplikan layar-2-2026-11-28 165013.png" alt="Clip 2">
+        <a href="https://www.youtube.com/live/YE1PtPf8vEA?si=-wcNMWXJ-AhspsXz">
+        <figcaption class="video-info">
+          <h4>GAME VIRAL MENIRU SUARA MEME BERSAMA PARTYAN VIRAL - MIMIC PARTY</h4>
+          <p>1.1M Views • 2 day ago</p>
+        </figcaption>
+      </figure>
+
+      <figure class="video-item">
+        <img src="img/Cuplikan layar-3-32026-11-28 164949.png" alt="Clip 3">
+        <a href="https://www.youtube.com/live/f828-ImZNdw?si=OEp19lIR7j367nDD">
+        <figcaption class="video-info">
+          <h4>GTA VI 60 FPS-KITA MENDAPATKAN MOBIL PAUL WALKER 1995 MITSUBISHI</h4>
+          <p>597k Views • 6 days ago</p>
+        </figcaption>
+      </figure>
+
+      <figure class="video-item">
+        <img src="img/Cuplikan layar-4- 2026-11-28 165036.png" alt="Clip 4">
+        <a href="https://youtu.be/txW0pKREAXw?si=_wN37jmw8KJ5a8ic">
+        <figcaption class="video-info">
+          <h4>KITA DATENG KE ACARA GTA VI YOUTUBE BERSAMA TEMAN2 B2F</h4>
+          <p>150K Views • 6 days ago</p>
+        </figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <!-- Chat Button -->
+  <a href="#" class="chat-btn" title="Join Discord Support">💬</a>
+
+</body>
+
+</html>
